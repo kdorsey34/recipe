@@ -79,7 +79,7 @@ router.put(
   "/:recipeId",
    passport.authenticate("jwt", { session: false}),
 async (request, response) => {
-  const recipeId = request.params.recipeId;
+  const recipeId = parseInt(request.params.recipeId);
 
   const updatedRecipes = await prisma.recipe.updateMany({
     where:{
